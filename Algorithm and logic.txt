@@ -1,0 +1,52 @@
+EASY-Sol1
+
+Algorithm:
+
+1.Read a string from the user.
+2.Trim the string to remove leading and trailing whitespace.
+3.Initialize a counter to 0.
+4.Iterate over the trimmed string backwards, starting from the last character.
+5.If the current character is not a space, increment the counter.
+6.If the current character is a space, break out of the loop.
+7.Return the counter value.
+
+Logic:
+
+The code first reads a string from the user and stores it in the variable s. The trim() method is then used to remove any leading or trailing whitespace from the string. The trimmed string is stored in the variable str.
+A counter variable, count, is initialized to 0. The code then iterates over the trimmed string backwards, starting from the last character. For each character, the code checks if it is a space. If it is not a space, the counter is incremented. If it is a space, the break statement is used to exit the loop.
+Finally, the code returns the value of the counter. This value represents the length of the last word in the string.
+
+
+MEDIUM-Sol2
+
+Algorithm:
+
+1.Input an array of integers nums.
+2.Initialize two candidate numbers can1 and can2 to 0, and two counters c1 and c2 to 0.
+3.Iterate through the array nums: a. For each number num: i. If can1 equals num, increment c1. ii. If can2 equals num, increment c2. iii. If c1 is 0, set can1 to num and c1 to 1. iv. If c2 is 0, set can2 to num and c2 to 1. v. If neither can1 nor can2 equals num, decrement both c1 and c2.
+4.Reset c1 and c2 to 0.
+5.Iterate through the array nums again: a. For each number num: i. If num equals can1, increment c1. ii. If num equals can2, increment c2.
+6.Create an empty list ans.
+7.If c1 is greater than nums.length / 3, add can1 to ans.
+8.If c2 is greater than nums.length / 3, add can2 to ans.
+9.Return the list ans.
+
+Logic:
+
+The code utilizes the Boyer-Moore Majority Vote Algorithm to identify the majority elements in the given array. The algorithm maintains two candidate majority elements and their respective counters. It iterates through the array, updating the candidate elements and their counters based on the encountered elements. If the counter of a candidate element reaches zero, it indicates that the candidate is no longer a majority element, and a new candidate is selected.
+After the initial iteration, the code performs a second pass to verify the actual count of each candidate element. If a candidate's count is greater than nums.length / 3, it is considered a majority element and added to the ans list. Finally, the ans list is returned, containing the identified majority elements.
+
+
+HARD-Sol3
+
+Algorithm:
+
+1.Input an integer a.
+2.Initialize factors to 1, count to 0, and remainder to 0.
+3.Assign n to a.
+4.While n is greater than 0: a) Calculate temp as the current value of factors. b) If the last digit of n is 0: i. Reset remainder to 0. c) Else if the last digit of n is greater than 1: i. Set remainder to temp. d) Else if the last digit of n is 1: i. Calculate remainder as the remainder of a divided by temp plus 1. e) Multiply factors by 10. f) Add to count the product of (a / factors) * temp + remainder. g) Divide n by 10.
+5.Return count.
+
+Logic:
+
+The code aims to count the number of trailing zeroes in the factorial of an integer a. It iterates through a digit by digit, maintaining the current power of 10 (represented by factors) and the accumulated count of trailing zeroes (represented by count). For each digit, it determines the contribution of that digit to the trailing zeroes count based on its value (0, 1, or greater than 1) and updates the count accordingly. Finally, it returns the accumulated count of trailing zeroes.
